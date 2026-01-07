@@ -3,6 +3,7 @@ import { useTheme } from "@/context/theme-provider";
 import { Moon, Sun } from "lucide-react";
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
+import CitySearch from "./CitySearch";
 
 type CloudProps = {
   size: string;
@@ -37,7 +38,10 @@ const Header = () => {
         <Link to={"/"}>
           <Cloud size="auto" className="h-14" theme={theme === 'dark' ? "#ffffff" : '#000000'}/>
         </Link>
-        <div>
+        <div className="flex gap-4">
+
+          <CitySearch />
+
           <div onClick={() => setTheme(isDark ? "light" : "dark")} className={`flex items-center cursor-pointer transition-transform duration-500 ${isDark ? "rotate-180" : "rotate-0"}`}>
             {isDark ? (
               <Sun className="h-6 w-6 text-yellow-500 rotate-0 transition-all" />
